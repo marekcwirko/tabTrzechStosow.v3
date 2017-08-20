@@ -1,0 +1,31 @@
+# Project: tab3st
+# Makefile created by Dev-C++ 5.7.1
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+OBJ      = main.o MultiStack.o
+LINKOBJ  = main.o MultiStack.o
+LIBS     = -L"C:/opt/cpp/Dev-Cpp/MinGW64/lib" -L"C:/opt/cpp/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc -g3
+INCS     = -I"C:/opt/cpp/Dev-Cpp/MinGW64/include" -I"C:/opt/cpp/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/opt/cpp/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.8.1/include"
+CXXINCS  = -I"C:/opt/cpp/Dev-Cpp/MinGW64/include" -I"C:/opt/cpp/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/opt/cpp/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.8.1/include" -I"C:/opt/cpp/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.8.1/include/c++"
+BIN      = tab3st.exe
+CXXFLAGS = $(CXXINCS) -g3
+CFLAGS   = $(INCS) -g3
+RM       = rm.exe -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+main.o: main.cpp
+	$(CPP) -c main.cpp -o main.o $(CXXFLAGS)
+
+MultiStack.o: MultiStack.cpp
+	$(CPP) -c MultiStack.cpp -o MultiStack.o $(CXXFLAGS)
